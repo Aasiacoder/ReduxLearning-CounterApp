@@ -4,15 +4,15 @@ import { decrement } from "./store";
 
 function App() {
 
-  const count = useSelector(function(state){//parameter-state and inside state have a reducer
-    return state.counter.count;//state has a reducer and counter have variable
+  const count = useSelector(function(state){//parameter-state, state means reducer
+    return state.counter.count;//inside state have counter object have count variable
   })
 
   //useDispatch() for actions
-  const dispatch = useDispatch();//inga erunthu action aha call panum
+  const dispatch = useDispatch();//useDispatch can call the actions
 
   function incrementFunction(){
-    //dispatch({type:"INC"}) //dispatch({parameter is type:"INC"})
+    //dispatch({type:"INC"}) //dispatch({parameter is type:"INC"}) older method
       dispatch(increment()); //here directly call a inrement function
   }
 

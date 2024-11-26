@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";//store ah imoprt pana use this line
-import { createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";//import configureStore
+import { createSlice } from "@reduxjs/toolkit";//import Slice
 
 
 //it act like reducer for manage state
@@ -10,9 +10,9 @@ const initialState = {//here i initial the count state variable
 const counterSlice = createSlice(
     {
         name:"counter",//slice name
-        initialState,//i mention initial state
+        initialState,//i mention initiatState variable
         reducers:{
-            increment:function(state){//state have initialState actions function
+            increment:function(state){//actions do here
                 state.count = state.count+1
             },
             decrement:function(state){
@@ -21,6 +21,7 @@ const counterSlice = createSlice(
         }
     }
 )
+
 //configureStore({}) have a object{}
 const store = configureStore({
     reducer:{//configureStore have reducer, reducer can take a object has a input and inside the object you have to give a variable
