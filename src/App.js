@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from "react-redux";
+import { increment } from "./store";
+import { decrement } from "./store";
 
 function App() {
+
+  const count = useSelector(function(state){//parameter-state and inside state have a reducer
+    return state.counter.count;//state has a reducer and counter have variable
+  })
+
+  //useDispatch() for actions
+  const dispatch = useDispatch();//inga erunthu action aha call panum
+
+  function incrementFunction(){
+    //dispatch({type:"INC"}) //dispatch({parameter is type:"INC"})
+      dispatch(increment()); //here directly call a inrement function
+  }
+
+  function decrementFunction(){
+    //dispatch({type:"DEC"})
+    dispatch(decrement());
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="container">
+      <h1>Count: {count}</h1>
+      <button onClick={incrementFunction}>Increment</button>
+      <button onClick={decrementFunction}>Decrement</button>
     </div>
   );
 }
